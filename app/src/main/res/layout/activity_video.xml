@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+
+    <include layout="@layout/widge_titlebar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.oridway.mediaplayer.SmartVideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.oridway.mediaplayer.SmartVideoView>
+
+        <net.ossrs.yasea.SrsCameraView
+            android:id="@+id/push_view"
+            android:layout_width="210dp"
+            android:layout_height="300dp"
+            android:layout_gravity="bottom|right" />
+
+        <Button
+            android:id="@+id/bt_start_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:text="播放" />
+    </FrameLayout>
+
+
+</LinearLayout>

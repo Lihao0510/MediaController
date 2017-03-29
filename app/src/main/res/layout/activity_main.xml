@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#66339933"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="#EEEEEE"
+        android:gravity="center"
+        android:textColor="#333333"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/wifi_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="#EEEEEE"
+        android:hint="请输入Wifi名称"
+        android:textColor="#333333"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/wifi_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="#EEEEEE"
+        android:hint="请输入Wifi密码"
+        android:textColor="#333333"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/bt_scan"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:text="扫描二维码" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_play"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:text="播放" />
+
+        <Button
+            android:id="@+id/bt_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="停止" />
+    </LinearLayout>
+
+</LinearLayout>
