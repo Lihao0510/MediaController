@@ -2,17 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/pure_white"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.LoginActivity">
+    android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="12dp"
-        android:layout_marginTop="21dp"
-        android:background="@mipmap/login_logo" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
     <LinearLayout
         android:id="@+id/ll_group_login"
@@ -153,11 +150,11 @@
 
     <LinearLayout
         android:id="@+id/ll_group_social"
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:orientation="horizontal">
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <View
             android:layout_width="0dp"

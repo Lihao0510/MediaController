@@ -8,15 +8,23 @@
     app:cardCornerRadius="0dp"
     app:cardElevation="3dp">
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/title_back"
-        android:layout_width="25dp"
-        android:layout_height="20dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="15dp"
-        android:src="@mipmap/arrow_back" />
+        android:layout_width="50dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/title_back_icon"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/arrow_back" />
+    </LinearLayout>
+
 
     <TextView
+        android:id="@+id/title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -25,6 +33,7 @@
         android:textSize="@dimen/text_large" />
 
     <ImageView
+        android:layout_gravity="right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

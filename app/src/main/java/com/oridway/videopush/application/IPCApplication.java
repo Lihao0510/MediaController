@@ -30,6 +30,10 @@ public class IPCApplication extends Application {
         CodeBook.init();
     }
 
+    public static Context getAppContext() {
+        return applicationContext;
+    }
+
     public static IPCApplication getInstance() {
         return mInstance;
     }

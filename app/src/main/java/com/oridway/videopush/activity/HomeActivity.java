@@ -10,7 +10,12 @@ import com.oridway.mediamanager.R;
 import com.oridway.videopush.fragment.CameraFragment;
 import com.oridway.videopush.fragment.HomeFragment;
 import com.oridway.videopush.fragment.SystemFragment;
+import com.oridway.videopush.model.EventMessage;
 import com.oridway.videopush.util.FullScreenUtil;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 
@@ -60,6 +65,7 @@ public class HomeActivity extends BaseActivity {
     protected void initData() {
         FullScreenUtil.setStatusColor(this);
         fragmentManager = getSupportFragmentManager();
+        EventBus.getDefault().register(this);
         normalColor = R.color.main_gray;
         checkColor = R.color.main_blue;
     }
@@ -136,5 +142,32 @@ public class HomeActivity extends BaseActivity {
         sysText.setTextColor(checkColor);
         sysIcon.setImageResource(R.mipmap.icon_sys_check);
         curView = SYS_VIEW;
+    }
+
+    //Fragment的back键点击时调用的方法,eventType: 0 来自CameraFragment, 1 来自SystemFragment
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onFragmentBack(EventMessage message) {
+        if (message.getEventId() != 0) {
+            return;
+        }
+        switch (message.getEventType()) {
+            case 0:
+                loadHomeFragment();
+                break;
+            case 1:
+                loadCameraFragment();
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (curView == HOME_VIEW || curView == BLANK_VIEW) {
+            super.onBackPressed();
+        } else {
+            loadHomeFragment();
+        }
     }
 }

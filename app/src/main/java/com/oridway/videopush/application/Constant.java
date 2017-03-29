@@ -6,6 +6,9 @@ package com.oridway.videopush.application;
 
 public class Constant {
 
-    public static final String APP_NAME = "SoundPlayer";
+    public static final String APP_NAME = "VideoManager";
+    public static final String AES_KEY = "this is a key!lw";
+    public static final String NAMESPACE = "http://www.OA.com/webservices/";
+    public static final String WH_NAMESPACE = "http://www.AIHM.com/webservices/";
 
 }
