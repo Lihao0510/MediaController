@@ -29,12 +29,15 @@ public class VideoActivity extends BaseActivity implements PlayerManager.PlayerS
     SrsCameraView cameraView;
     @BindView(R.id.bt_start_publish)
     Button startPublish;
+    @BindView(R.id.bt_refresh_receive)
+    Button refreshReceive;
 
     private PlayerManager player;
     private SrsPublisher mPublisher;
     //private static String url = "http://zv.3gv.ifeng.com/live/zhongwen800k.m3u8";
     //private static String url = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
-    private String url = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+    //private String url = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+    private String url = "rtmp://192.168.2.254/live/test1";
 
     @Override
     protected int setLayoutRes() {
@@ -50,12 +53,13 @@ public class VideoActivity extends BaseActivity implements PlayerManager.PlayerS
 
     private void initClick() {
         startPublish.setOnClickListener(this);
+        refreshReceive.setOnClickListener(this);
     }
 
     private void initVideoView() {
         player = new PlayerManager(this, videoView);
         player.setFullScreenOnly(false);
-        player.setScaleType(PlayerManager.SCALETYPE_FITXY);
+        player.setScaleType(PlayerManager.SCALETYPE_WRAPCONTENT);
         player.playInFullScreen(false);
         player.setPlayerStateListener(this);
         player.play(url);
@@ -186,23 +190,39 @@ public class VideoActivity extends BaseActivity implements PlayerManager.PlayerS
 
             }
         }));
+        initCamera();
+    }
 
+    public void initCamera() {
+        mPublisher.setPreviewResolution(480, 640);
+        mPublisher.setOutputResolution(480, 640);
+        mPublisher.setVideoSmoothMode();
+    }
+
+    public void startPush() {
+        Thread pushThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mPublisher.startPublish("rtmp://192.168.2.254/live/test1");
+            }
+        });
+        pushThread.start();
     }
 
     @Override
     protected void start() {
         player.start();
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_start_publish:
-                mPublisher.setPreviewResolution(384, 640);
-                mPublisher.setOutputResolution(384, 640);
-                mPublisher.setVideoSmoothMode();
-                mPublisher.startPublish("rtmp://121.41.57.116/live/test");
+                startPush();
+                break;
+            case R.id.bt_refresh_receive:
+                player.stop();
+                player.play(url);
                 break;
             default:
                 break;

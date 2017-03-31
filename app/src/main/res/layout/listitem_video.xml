@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginBottom="0.5dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="0dp">
+
+    <RelativeLayout
+        android:id="@+id/rl_list_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/button_white">
+
+        <ImageView
+            android:id="@+id/iv_video_icon"
+            android:layout_width="60dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/icon_video" />
+
+        <TextView
+            android:id="@+id/tv_video_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/iv_video_icon"
+            android:text="视频标题"
+            android:textColor="@color/deep_dark"
+            android:textSize="@dimen/text_large" />
+
+        <TextView
+            android:id="@+id/tv_video_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:text="发起人"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/text_middle" />
+
+        <TextView
+            android:id="@+id/tv_video_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_video_name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@id/iv_video_icon"
+            android:text="2017-03-31 13:50"
+            android:textColor="@color/deep_gray"
+            android:textSize="@dimen/text_small" />
+
+        <TextView
+            android:id="@+id/tv_video_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_video_time"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@id/iv_video_icon"
+            android:text="rtmp://192.168.2.254/live/test"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/text_small" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

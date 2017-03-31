@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 
 import com.oridway.mediamanager.R;
-import com.oridway.videopush.encode.CodeBook;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,7 +26,6 @@ public class IPCApplication extends Application {
         super.onCreate();
         mInstance = this;
         applicationContext = this;
-        CodeBook.init();
     }
 
     public static Context getAppContext() {

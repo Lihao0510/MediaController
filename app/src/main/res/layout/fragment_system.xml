@@ -2,13 +2,426 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <include layout="@layout/widge_titlebar" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="个人中心页面" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="180dp"
+                android:background="@mipmap/bg_system"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_sys_head"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@mipmap/icon_head_default" />
+
+                    <TextView
+                        android:id="@+id/tv_sys_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="登录/注册"
+                        android:textColor="#fff"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_sys_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="我的信息"
+                        android:textColor="#fff"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="12dp"
+                    android:background="#e5e5e5" />
+
+                <RelativeLayout
+                    android:id="@+id/my_house"
+                    android:layout_width="fill_parent"
+                    android:layout_height="47dp"
+                    android:background="@drawable/button_white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/textView04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:drawableLeft="@mipmap/small_house"
+                        android:drawablePadding="20dp"
+                        android:gravity="center_vertical"
+                        android:text="我的房屋"
+                        android:textColor="#373737"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/me_text01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView04"
+                        android:layout_alignBottom="@+id/textView04"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:drawableRight="@mipmap/icom_right_arrow"
+                        android:gravity="center_vertical|right"
+                        android:paddingLeft="20dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#e5e5e5" />
+
+                <RelativeLayout
+                    android:id="@+id/my_trade"
+                    android:layout_width="fill_parent"
+                    android:layout_height="47dp"
+                    android:background="@drawable/button_white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/textView03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:drawableLeft="@mipmap/small_chart"
+                        android:drawablePadding="20dp"
+                        android:gravity="center_vertical"
+                        android:text="我的订单"
+                        android:textColor="#373737"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/me_text03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView03"
+                        android:layout_alignBottom="@+id/textView03"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:drawableRight="@mipmap/icom_right_arrow"
+                        android:gravity="center_vertical|right"
+                        android:paddingLeft="20dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#e5e5e5" />
+
+                <RelativeLayout
+                    android:id="@+id/my_address"
+                    android:layout_width="fill_parent"
+                    android:layout_height="47dp"
+                    android:background="@drawable/button_white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/textView05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:drawableLeft="@mipmap/small_gift"
+                        android:drawablePadding="20dp"
+                        android:gravity="center_vertical"
+                        android:text="收货地址"
+                        android:textColor="#373737"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/me_text05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView05"
+                        android:layout_alignBottom="@+id/textView05"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:drawableRight="@mipmap/icom_right_arrow"
+                        android:gravity="center_vertical|right"
+                        android:paddingLeft="20dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#e5e5e5" />
+
+                <RelativeLayout
+                    android:id="@+id/my_record"
+                    android:layout_width="fill_parent"
+                    android:layout_height="47dp"
+                    android:background="@drawable/button_white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:drawableLeft="@mipmap/small_sofa"
+                        android:drawablePadding="20dp"
+                        android:gravity="center_vertical"
+                        android:text="开门记录"
+                        android:textColor="#373737"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/me_text11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView11"
+                        android:layout_alignBottom="@+id/textView11"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:drawableRight="@mipmap/icom_right_arrow"
+                        android:gravity="center_vertical|right"
+                        android:paddingLeft="20dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#e5e5e5" />
+
+                <RelativeLayout
+                    android:id="@+id/my_message"
+                    android:layout_width="fill_parent"
+                    android:layout_height="47dp"
+                    android:background="@drawable/button_white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/me_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:drawableLeft="@mipmap/small_message"
+                        android:drawablePadding="20dp"
+                        android:gravity="center_vertical"
+                        android:text="消息中心"
+                        android:textColor="#373737"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/me_message_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/me_message"
+                        android:layout_alignBottom="@id/me_message"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:drawableRight="@mipmap/icom_right_arrow"
+                        android:gravity="center_vertical|right"
+                        android:paddingLeft="20dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="12dp"
+                    android:background="#e5e5e5" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#e5e5e5" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#e5e5e5" />
+
+                <RelativeLayout
+                    android:id="@+id/my_password"
+                    android:layout_width="fill_parent"
+                    android:layout_height="47dp"
+                    android:background="@drawable/button_white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:drawableLeft="@mipmap/small_around"
+                        android:drawablePadding="20dp"
+                        android:gravity="center_vertical"
+                        android:text="密码管理"
+                        android:textColor="#373737"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/me_text10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView10"
+                        android:layout_alignBottom="@+id/textView10"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:drawableRight="@mipmap/icom_right_arrow"
+                        android:gravity="center_vertical|right"
+                        android:paddingLeft="20dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#e5e5e5" />
+
+                <RelativeLayout
+                    android:id="@+id/my_about"
+                    android:layout_width="fill_parent"
+                    android:layout_height="47dp"
+                    android:background="@drawable/button_white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/textView07"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:drawableLeft="@mipmap/small_waiter"
+                        android:drawablePadding="20dp"
+                        android:gravity="center_vertical"
+                        android:text="退出登录"
+                        android:textColor="#373737"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/me_text07"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView07"
+                        android:layout_alignBottom="@+id/textView07"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:drawableRight="@mipmap/icom_right_arrow"
+                        android:gravity="center_vertical|right"
+                        android:paddingLeft="20dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#e5e5e5" />
+
+                <RelativeLayout
+                    android:id="@+id/my_setting"
+                    android:layout_width="fill_parent"
+                    android:layout_height="47dp"
+                    android:background="@drawable/button_white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/textView09"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:drawableLeft="@mipmap/small_setting"
+                        android:drawablePadding="20dp"
+                        android:gravity="center_vertical"
+                        android:text="设置"
+                        android:textColor="#373737"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/me_text09"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView09"
+                        android:layout_alignBottom="@+id/textView09"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:drawableRight="@mipmap/icom_right_arrow"
+                        android:gravity="center_vertical|right"
+                        android:paddingLeft="20dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#e5e5e5" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="12dp"
+                    android:background="#e5e5e5" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#e5e5e5"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

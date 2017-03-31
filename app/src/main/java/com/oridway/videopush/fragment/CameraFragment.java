@@ -1,5 +1,6 @@
 package com.oridway.videopush.fragment;
 
+import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -7,7 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.oridway.mediamanager.R;
+import com.oridway.videopush.contract.CameraContract;
 import com.oridway.videopush.model.EventMessage;
+import com.oridway.videopush.presenter.CameraPresenterImpl;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -20,7 +23,7 @@ import in.srain.cube.views.ptr.PtrHandler;
  * Created by lihao on 2017/3/27.
  */
 
-public class CameraFragment extends BaseFragment {
+public class CameraFragment extends BaseFragment implements CameraContract.CameraView {
 
     @BindView(R.id.title_back)
     LinearLayout backButton;
@@ -33,6 +36,8 @@ public class CameraFragment extends BaseFragment {
 
     private LinearLayoutManager listManager;
 
+    private CameraContract.CameraPresenter mPresenter;
+
     @Override
     protected int setViewSource() {
         return R.layout.fragment_camera;
@@ -40,13 +45,17 @@ public class CameraFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        setPresenter(new CameraPresenterImpl(this));
         titleText.setText("视频源列表");
     }
 
     @Override
     protected void start() {
         backButton.setOnClickListener(this);
+        listManager = new LinearLayoutManager(mActivity);
         initPullRefresh();
+        cameraList.setLayoutManager(listManager);
+        mPresenter.initList(cameraList);
     }
 
     private void initPullRefresh() {
@@ -54,18 +63,13 @@ public class CameraFragment extends BaseFragment {
         ptrManager.setPtrHandler(new PtrHandler() {
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
-                //listManager.findFirstCompletelyVisibleItemPosition() == 0;
-                return true;
+                return listManager.findFirstCompletelyVisibleItemPosition() == 0;
             }
 
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-                frame.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        ptrManager.refreshComplete();
-                    }
-                }, 1800);
+                mPresenter.refreshList();
+                ptrManager.refreshComplete();
             }
         });
     }
@@ -81,4 +85,14 @@ public class CameraFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void setPresenter(CameraContract.CameraPresenter presenter) {
+        mPresenter = presenter;
+        mPresenter.initPresenter();
+    }
+
+    @Override
+    public Context getContext() {
+        return mActivity;
+    }
 }
