@@ -3,6 +3,7 @@ package com.oridway.videopush.activity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.github.faucamp.simplertmp.RtmpHandler;
 import com.oridway.mediamanager.R;
@@ -194,7 +195,7 @@ public class VideoActivity extends BaseActivity implements PlayerManager.PlayerS
     }
 
     public void initCamera() {
-        mPublisher.setPreviewResolution(480, 640);
+        mPublisher.setPreviewResolution(1280, 720);
         mPublisher.setOutputResolution(480, 640);
         mPublisher.setVideoSmoothMode();
     }
@@ -203,7 +204,7 @@ public class VideoActivity extends BaseActivity implements PlayerManager.PlayerS
         Thread pushThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                mPublisher.startPublish("rtmp://192.168.2.254/live/test1");
+                mPublisher.startPublish("rtmp://192.168.2.254/live/test2");
             }
         });
         pushThread.start();
@@ -241,12 +242,10 @@ public class VideoActivity extends BaseActivity implements PlayerManager.PlayerS
 
     @Override
     public void onLoading() {
-
     }
 
     @Override
     public void onPlay() {
-
     }
 
     @Override

@@ -20,17 +20,27 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.oridway.videopush.activity.ScanActivity" />
-        <activity android:name="com.oridway.videopush.activity.WelcomeActivity">
+        <activity
+            android:name="com.oridway.videopush.activity.ScanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.oridway.videopush.activity.WelcomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.oridway.videopush.activity.HomeActivity" />
-        <activity android:name="com.oridway.videopush.activity.LoginActivity" />
-        <activity android:name="com.oridway.videopush.activity.VideoActivity" />
+        <activity
+            android:name="com.oridway.videopush.activity.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.oridway.videopush.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.oridway.videopush.activity.VideoActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
